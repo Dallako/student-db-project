@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(student-database)
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/database.cpp src/student.cpp)
 set(CMAKE_CXX_STANDARD 20)
 
 include(FetchContent)
@@ -18,6 +18,8 @@ enable_testing()
 add_executable(
     ${PROJECT_NAME}-ut
     src/test.cpp
+    src/database.cpp
+    src/student.cpp
 )
 
 target_link_libraries(
