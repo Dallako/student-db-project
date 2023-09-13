@@ -2,13 +2,6 @@
 #include "database.hpp"
 #include "student.hpp"
 
-//Demonstrate some basic assertions.
-TEST(HelloTest, BasicAssertions) {
-    //Expect two strings not to be equal
-    EXPECT_STRNE("hello", "world");
-    //Expect equality
-    EXPECT_EQ(7*6, 42);
-}
 
 TEST(CheckStructure, CanAddStudentToDb) {//requirements 1&2
     Student adam(
@@ -21,5 +14,6 @@ TEST(CheckStructure, CanAddStudentToDb) {//requirements 1&2
     );
 
     Database db;
-    db.add(adam);
+    EXPECT_TRUE(db.add(adam));
+    EXPECT_FALSE(db.add(adam));
 }
